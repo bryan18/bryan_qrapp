@@ -34,8 +34,10 @@ export class HomePage {
                 console.log("format:", barcodeData.format);
                 console.log("cancelled:", barcodeData.cancelled);
 
-      if ( barcodeData.cancelled == true && barcodeData.text != null) {
+      if ( barcodeData.text != null) {
         this._historialService.agregar_historial(barcodeData.text);
+      }else{
+        console.log("Cancelado o el texto esta vacío");
       }
     }, (err) => {
       console.error("Error ", err);
